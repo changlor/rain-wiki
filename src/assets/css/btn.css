@@ -1,0 +1,17 @@
+.btn {
+  padding: 5px 20px;
+  letter-spacing: 2px;
+  display: flex;
+  align-items: center;
+  border-radius: 20px;
+  justify-content: center;
+  min-width: 80px;
+}
+.btn.primary {
+  background-color: #4fc08d;
+  border: 1px solid #4fc08d;
+}
+.btn.contrast {
+  background-color: #fff;
+  border: 1px solid #4fc08d;
+}

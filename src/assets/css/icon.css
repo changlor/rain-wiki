@@ -1,0 +1,9 @@
+.fa-icon {
+  width: 20px;
+  height: 20px;
+  display: inline-block;
+  background-size: 20px 20px;
+}
+.fa-search {
+  background-image: url('../images/search.svg');
+}

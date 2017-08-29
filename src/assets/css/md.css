@@ -1,0 +1,70 @@
+.md {
+  padding-bottom: .4rem;
+}
+.md * {
+  line-height: .75rem;
+}
+.md ul {
+  padding-left: .4rem;
+}
+.md strong {
+  color: #333;
+}
+.md li > p:first-child {
+  padding-left: .4rem;
+}
+.md h1 {
+  font-size: 18px;
+  text-align: center;
+  margin: .56rem 0;
+}
+[data-dpr="2"] .md h1 {
+  font-size: 36px;
+}
+[data-dpr="3"] .md h1 {
+  font-size: 54px;
+}
+.md h2 {
+  font-size: 16px;
+  padding-left: .32rem;
+  border-left: .08rem solid #69b8ff;
+  margin: .4rem 0;
+}
+[data-dpr="2"] .md h2 {
+  font-size: 32px;
+}
+[data-dpr="3"] .md h2 {
+  font-size: 48px;
+}
+.md li {
+  position: relative;
+  font-size: 14px;
+  color: #666;
+}
+.md li:before {
+  position: absolute;
+  top: .25rem;
+  width: .24rem;
+  height: .24rem;
+  border-radius: .24rem;
+  background-color: #8a8a8a;
+  content: ' ';
+}
+[data-dpr="2"] .md li {
+  font-size: 28px;
+}
+[data-dpr="3"] .md li {
+  font-size: 42px;
+}
+.md blockquote {
+  margin: .12rem 0;
+  padding-left: .4rem;
+  font-size: 14px;
+  color: #666;
+}
+[data-dpr="2"] .md blockquote {
+  font-size: 28px;
+}
+[data-dpr="3"] .md blockquote {
+  font-size: 42px;
+}

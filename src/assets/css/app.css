@@ -1,0 +1,56 @@
+/* common */
+body {
+  margin: 0;
+}
+.dfcenter {
+  display: flex;
+  align-items: center;
+}
+.space {
+  flex: 1;
+}
+.link {
+  cursor: pointer;
+  display: flex;
+}
+/* font */
+.font14 {
+  font-size: 14px;
+}
+.font15 {
+  font-size: 15px;
+}
+.font16 {
+  font-size: 16px;
+}
+.font17 {
+  font-size: 17px;
+}
+.font18 {
+  font-size: 18px;
+}
+.font20 {
+  font-size: 20px;
+}
+.font24 {
+  font-size: 24px;
+}
+.font26 {
+  font-size: 26px;
+}
+.font28 {
+  font-size: 28px;
+}
+.font30 {
+  font-size: 30px;
+}
+/* color */
+.cr666 {
+  color: #666;
+}
+.crForgive, .cr4fc08d {
+  color: #4fc08d;
+}
+.crfff {
+  color: #fff;
+}
