@@ -12,7 +12,7 @@
           <span class="placeholder"></span>
           <span
             class="btn link contrast crForgive"
-            @click="request('redirect', { path: '/quickStart' })">
+            @click="request('redirect', { path: 'quickStart' })">
             快速开始
           </span>
         </div>
@@ -33,7 +33,7 @@
     }
   }
 </script>
-<style>
+<style scoped>
   .title {
     text-align: center;
   }
@@ -43,6 +43,8 @@
   .main {
     margin-top: 140px;
     display: inline-block;
+    padding-bottom: 20px;
+    border-bottom: 1px dashed #666;
   }
   .meta {
     margin-top: 30px;

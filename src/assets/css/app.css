@@ -9,6 +9,9 @@ body {
 .space {
   flex: 1;
 }
+.bold {
+  font-weight: bold;
+}
 .link {
   cursor: pointer;
   display: flex;
@@ -53,4 +56,12 @@ body {
 }
 .crfff {
   color: #fff;
+}
+/* optimize */
+::-webkit-scrollbar {
+  -moz-appearance: none;
+  background-color: transparent;
+  background-image: none;
+  position: relative;
+  overflow: hidden;
 }
