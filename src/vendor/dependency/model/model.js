@@ -9,7 +9,9 @@ class Model {
     constructor () {
         ::this.loadModels; ::this.addSubscription; ::this.addBubbles;
         this.initialize();
-        this.loadModels(); this.addSubscription(); this.addBubbles();
+        this.loadModels();
+        this.addSubscription();
+        this.addBubbles();
     }
 
     initialize () {
@@ -54,8 +56,10 @@ class Model {
             if (this.subscription.hasOwnProperty(subscription)) {
                 for (let i = 0; i < this.subscription[subscription].length; i++) {
                     const eventId = {};
+                    eventId.name = subscription;
                     eventId.subscription = id;
                     eventId.subscriber = i;
+                    eventId.name = subscription;
                     this.subscription[subscription][i](page, component, eventId);
                 }
             }

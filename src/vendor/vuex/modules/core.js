@@ -5,7 +5,7 @@ const state = {
     // 定义代理事件数据
     isBubbled: 0, delegation: { subscriptions: [] },
     // 
-    isApplied: 0, memory: { request: [], variable: [] },
+    isApplied: 0, memory: { request: [], variable: {} },
     // 
     isRegister: 0, isRequest: 0, customer: { register: [], request: [] },
 }
@@ -38,8 +38,8 @@ const actions = {
         commit('RESOLVE_HOOK_SUBSCRIPTIONS');
     },
     // 冒泡代理事件
-    bubbleDelegation ({ commit }, { subscription, page }) {
-        commit('BUBBLE_DELEGATION', { subscription, page });
+    bubbleDelegation ({ commit }, { subscription, page, rely }) {
+        commit('BUBBLE_DELEGATION', { subscription, page, rely });
     },
     // 清除代理事件
     resolveDelegationSubscriptions ({ commit }) {
@@ -86,12 +86,13 @@ const mutations = {
         state.hook.subscriptions = [];
     },
     // 冒泡代理事件
-    BUBBLE_DELEGATION (state, { subscription, page }) {
+    BUBBLE_DELEGATION (state, { subscription, page, rely }) {
         state.isBubbled++;
         state.delegation.subscriptions.push({
             id: state.isBubbled,
-            subscription: subscription,
-            page: page,
+            subscription,
+            page,
+            rely
         });
     },
     // 清除代理事件
@@ -122,7 +123,7 @@ const mutations = {
     },
     //
     MODIFY_MEMORY (state, variable) {
-        state.memory.variable = variable;
+        state.memory.variable = { ...state.memory.variable, ...variable };
     },
     //
     RESOLVE_ALLOCATE_REQUEST (state) {
