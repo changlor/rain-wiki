@@ -1,10 +1,10 @@
 <template>
   <div id="app">
-    <router-view></router-view>
     <vendor-components class="core"></vendor-components>
     <div class="components">
       <redirect />
     </div>
+    <router-view></router-view>
   </div>
 </template>
 <script>
@@ -21,4 +21,5 @@
   @import './assets/css/btn.css';
   @import './assets/css/hl.css';
   @import './assets/css/md.css';
+  @import './assets/css/grid.css';
 </style>

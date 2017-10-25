@@ -1,6 +1,6 @@
 <template>
   <div>
-    <banner />
+    <Banner />
     <div class="container">
       <div class="main">
         <div class="title font28">欢迎使用rain框架快速搭建项目</div>
@@ -12,7 +12,7 @@
           <span class="placeholder"></span>
           <span
             class="btn link contrast crForgive"
-            @click="request('redirect', { path: 'quickStart' })">
+            @click="$request('redirect', { path: 'quickStart' })">
             快速开始
           </span>
         </div>
@@ -21,16 +21,12 @@
   </div>
 </template>
 <script>
-  import banner from '../components/header';
+  import Banner from '../components/header';
+
   export default {
-    methods: {
-      request (subscription, payload) {
-        this.$store.dispatch('requestCustomer', { request: subscription, payload, page: this });
-      },
-    },
     components: {
-      banner
-    }
+      Banner
+    },
   }
 </script>
 <style scoped>

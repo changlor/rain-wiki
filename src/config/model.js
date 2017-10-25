@@ -1,8 +1,8 @@
 export default {
-    models: ['Welcome'],
-    subscriptions: {
-        'say': {
-            Welcome: 'say',
-        },
-    }
+  models: ['Welcome', 'Loader'],
+  subscriptions: {
+    'say': {
+      Welcome: 'say',
+    },
+  }
 }

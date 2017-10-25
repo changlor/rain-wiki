@@ -1,0 +1,14 @@
+.access-token-class-components-Navigation p {
+  padding: 5px;
+  border-bottom: 1px dashed #ddd;
+  -webkit-transition: border .3s ease-in-out;
+  transition: border .3s ease-in-out;
+}
+.access-token-class-components-Navigation p:hover {
+  color: #F55852;
+  border-bottom: 1px dashed #4fc08d;
+}
+.access-token-class-components-Navigation blockquote {
+  margin: 0;
+  margin-left: 20px;
+}

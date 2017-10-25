@@ -20,7 +20,7 @@ module.exports = {
     filename: '[name].js'
   },
   resolve: {
-    extensions: ['', '.js', '.vue', '.json'],
+    extensions: ['', '.js', '.vue', '.json', '.md'],
     fallback: [path.join(__dirname, '../node_modules')],
     alias: {
       'vue$': 'vue/dist/vue.common.js',
@@ -45,6 +45,10 @@ module.exports = {
           path.join(projectRoot, 'src')
         ],
         exclude: /node_modules/
+      },
+      {
+        test: /\.md$/,
+        loader: 'markdown-loader'
       },
       {
         test: /\.json$/,

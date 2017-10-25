@@ -3,17 +3,25 @@ body {
   margin: 0;
 }
 .dfcenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .space {
-  flex: 1;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
 }
 .bold {
   font-weight: bold;
 }
 .link {
   cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
 }
 /* font */
@@ -51,6 +59,9 @@ body {
 .cr666 {
   color: #666;
 }
+.cr999 {
+  color: #999;
+}
 .crForgive, .cr4fc08d {
   color: #4fc08d;
 }
@@ -62,6 +73,28 @@ body {
   -moz-appearance: none;
   background-color: transparent;
   background-image: none;
+  width: 0;
   position: relative;
   overflow: hidden;
+}
+@media (min-width: 767px) {
+  .kit-contrast-hidden-mb {
+    display: none;
+  }
+}
+@media (min-width: 991px) {
+  .kit-contrast-hidden-tb {
+    display: none;
+  }
+}
+@media (min-width: 1199px) {
+  .kit-contrast-hidden {
+    display: none;
+  }
+}
+@media (max-width: 767px) {
+  .kit-max-mb {
+    width: 100%;
+    padding: 0 10px;
+  }
 }

@@ -35,6 +35,18 @@
     border-bottom: .0625rem dashed #eee;
     font-weight: 300;
 }
+.rain-markdown h4 {
+    margin-top: 20px;
+    margin-bottom: 10px;
+    font-size: 15px;
+    color: #333;
+    font-weight: bold;
+    padding-bottom: 2px;
+    border-bottom: .0625rem dashed #eee;
+}
+.rain-markdown h4:before {
+    content: '*';
+}
 .rain-markdown p {
     margin-top: 0;
     margin-bottom: 1.5rem;
@@ -64,7 +76,10 @@
     color: #777;
 }
 .rain-markdown pre code {
-    text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+       -moz-text-size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+            text-size-adjust: 100%;
     white-space: pre;
     font-size: 13px;
     margin: 0;
@@ -78,4 +93,24 @@
     -webkit-font-smoothing: antialiased;
     -o-font-smoothing: antialiased;
     -moz-font-smoothing: antialiased;
+}
+
+.rain-markdown pre {
+    margin-bottom: 0;
+}
+.rain-markdown pre + p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.rain-markdown h4 + p, .rain-markdown blockquote + p {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    font-size: 14px;
+    color: #666;
+}
+.rain-markdown h4 + blockquote p {
+    font-size: 14px;
+    margin-bottom: 10px;
 }

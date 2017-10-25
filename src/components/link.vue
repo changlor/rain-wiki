@@ -7,21 +7,10 @@
   export default {
     data () {
       return {
-        count: 0, emit: {},
-        path: {},
-        payload: {},
+        emit: {}, path: {},
       }
     },
     methods: {
-      bubble (subscription, page) {
-        this.$store.dispatch('bubbleDelegation', { subscription, page });
-      },
-      register (subscription) {
-        this.$store.dispatch('registerCustomer', { register: subscription, page: this });
-      },
-      request (subscription, payload) {
-        this.$store.dispatch('requestCustomer', { request: subscription, payload, page: this });
-      },
       redirect (path) {
         this.$nextTick(() => {
           this.$router.push({ path })
@@ -29,13 +18,11 @@
       },
     },
     mounted () {
-      this.register('redirect');
-    },
-    watch: {
-      count () {
-        this.path.to = this.payload.path;
+      this.$register('redirect')
+      .then((payload) => {
+        this.path.to = payload.path;
         this.redirect(this.path.to);
-      }
-    }
+      })
+    },
   }
 </script>

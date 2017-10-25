@@ -1,95 +1,91 @@
 <template>
   <div>
-    <banner />
+    <Banner />
     <div class="container">
-      <ul class="nav cr666 font14">
-        <li><span class="font16 bold" @click="page(3)"># 快速开始</span></li>
-        <li><span @click="page(2)">搭建你的第一个路由</span></li>
-        <li><span @click="page(1)">借助事件响应页面</span></li>
-        <li><span @click="page(0)">如何加载css和js，以及tips</span></li>
-        <li><span>如何跳转页面</span></li>
-      </ul>
-      <div class="wiki">
-        <div class="rain-markdown" v-html="md(doc)" v-if="doc != ''"></div>
-        <div class="empty font24 crForgive" v-if="doc == ''">
-          Pages are loading...
-        </div>
+      <!-- for phone -->
+      <div class="wiki row kit-contrast-hidden-mb kit-max-mb">
+        <section class="col-tb-12">
+
+        </section>
+      </div>
+      <!-- for pad -->
+      <div class="wiki row kit-contrast-hidden-tb kit-hidden-mb pad">
+        <section class="col-tb-12">
+          <Navigation class="navigation" :payload="items" device="pad" />
+          <Items class="items" :payload="items" device="pad" />
+        </section>
+      </div>
+      <!-- for pc -->
+      <div class="wiki row kit-hidden-tb">
+        <section class="col-tb-3 ">
+          <Navigation :payload="items" device="pc" />
+        </section>
+        <section class="col-tb-9 kit-hidden-tb">
+          <Items :payload="items" device="pc" />
+        </section>
       </div>
     </div>
   </div>
 </template>
 <script>
   import { Func } from '../vendor/lib';
-  import banner from '../components/header';
+  import Banner from '../components/header';
+  import Navigation from '../components/Navigation';
+  import Items from '../components/Items';
+  
   export default {
     data () {
       return {
         docs: [],
         doc: '',
         isReady: false,
-      }
-    },
-    methods: {
-      request (subscription, payload) {
-        this.$store.dispatch('requestCustomer', { request: subscription, payload, page: this });
-      },
-      md (str) {
-        return Func.parseMarkdown(str);
-      },
-      page (index) {
-        if (!this.isReady) {
-          return false;
-        }
-        this.doc = this.docs[index].body;
+        items: {
+          delegation: 'selectMarkdown',
+          res: {
+            quickStart: {
+              parent: null,
+              child: {
+                route: {
+                  parent: 'quickStart',
+                  child: null,
+                  name: '路由配置',
+                },
+                components: {
+                  parent: 'quickStart',
+                  child: null,
+                  name: '组件加载',
+                },
+                event: {
+                  parent: 'quickStart',
+                  child: null,
+                  name: '事件订阅机制',
+                },
+                static: {
+                  parent: 'quickStart',
+                  child: null,
+                  name: '静态资源加载',
+                },
+              },
+              name: '快速开始',
+            }
+          },
+          index: 'quickStart',
+        },
       }
     },
     components: {
-      banner
+      Banner, Navigation, Items
     },
     mounted () {
-      fetch('https://api.github.com/repos/changlor/rain-wiki/issues')
-      .then((res) => res.json())
-      .then((res) => {
-        this.docs = res;
-        this.isReady = true;
-      })
+
     }
   }
 </script>
 <style scoped>
-  .container {
-    display: flex;
-    padding: 0 120px;
-  }
-  .nav {
-    min-width: 150px;
-    padding: 40px;
-    width: 20%;
-  }
   .wiki {
-    flex: 1;
     padding: 20px 0;
   }
-  .rain-markdown, .empty {
-    box-sizing: border-box;
-    overflow-y: scroll;    
-    padding-right: 20px;
-    height: 630px;
-  }
-  .empty {
-    display: flex;
-    justify-content: center;
-    padding-top: 150px;
-    background-color: #eee;
-  }
-  .nav li {
-    list-style: none;
-    padding: 5px;
-    border-bottom: 1px dashed #ddd;
-    transition: border .3s ease-in-out;
-  }
-  .nav li:hover {
-    color: #999;
-    border-bottom: 1px dashed #4fc08d;
+  .pad .navigation {
+    margin-bottom: 30px;
   }
 </style>

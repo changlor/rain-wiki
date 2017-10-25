@@ -1,0 +1,1 @@
+export default (page) => page.$bubble(`renderTreeToIndexdevice${page.device}`);

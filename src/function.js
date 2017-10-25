@@ -27,6 +27,7 @@ const readClassification = function (object, dir, index = 0) {
 }
 //渲染md为html
 const parseMarkdown = function (md, config) {
+    md = md + '';
     if (Php.empty(md)) {
         md = '';
     }
@@ -111,6 +112,36 @@ const bodyPack = function (data) {
     return req;
 }
 
+const renderTreeToIndex = function (tree, suffix) {
+  let res = '';
+  const indexToTag = (index) => {
+    let tag = index == 0 ? '' : '\r\n';
+    for (let i = 0; i < index; i++) {
+      tag = `${tag}>`;
+    }
+    return index == 0 ? `${tag} ` : tag;
+  }
+  let currentIndex = 0;
+  let previousIndex = 0;
+  const render = (tree, tag, index) => {
+    for (let [key, value] of Object.entries(tree)) {
+      currentIndex = index;
+      if (currentIndex < previousIndex) {
+        res = `${res}\r\n`;
+      }
+      previousIndex = currentIndex;
+      res = suffix(res, tag, tree, key, index);
+      if (!!value.child) {
+        previousIndex = currentIndex;
+        currentIndex = index;
+        render(value.child, indexToTag(index + 1, true), index + 1);
+      }
+    }
+  }
+  render(tree, indexToTag(0), 0);
+  return res.trim(res);
+}
+
 export default {
     bodyPack,
     formatTime,
@@ -120,5 +151,6 @@ export default {
     readClassification,
     readUserInfo,
     isEmptyObject,
-    toUrl
+    toUrl,
+    renderTreeToIndex,
 }
