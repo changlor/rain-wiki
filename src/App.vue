@@ -10,9 +10,7 @@
 <script>
   import redirect from './components/link';
   export default {
-    components: {
-      redirect
-    }
+    components: { redirect }
   }
 </script>
 <style>

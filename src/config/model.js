@@ -1,8 +1,11 @@
+import Welcome from '../model/Welcome';
+import Loader from '../model/Loader';
+
 export default {
-  models: ['Welcome', 'Loader'],
-  subscriptions: {
-    'say': {
+  model: { Welcome, Loader },
+  table: {
+    say: {
       Welcome: 'say',
     },
-  }
+  },
 }

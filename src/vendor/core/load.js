@@ -13,10 +13,10 @@ import communication from './components/communication';
 // import helper from './components/helper';
 // 输出程序配置
 export default {
-    appSetting: {
-        components: {
-            delegation, hook, memory, customer, communication
-            // helper
-        }
+  appSetting: {
+    components: {
+      delegation, hook, memory, customer, communication
+      // helper
     }
+  }
 };

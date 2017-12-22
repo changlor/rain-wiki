@@ -136,4 +136,4 @@ export default {
 }
 
 ```
-此时页面已经成功响应
+重启服务，ctrl+c&npm run dev，此时页面已经成功响应

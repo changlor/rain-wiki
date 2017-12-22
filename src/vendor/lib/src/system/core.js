@@ -1,3 +1,5 @@
+import Php from './php'
+
 //无限分类赋值
 const storeClassification = function (object, dir, value, index = 0) {
   if (index == 0 && dir.length == 1) {
@@ -21,16 +23,45 @@ const readClassification = function (object, dir, index = 0) {
 }
 
 const readTreeClassification = function (object, tree, path) {
-  for (let [key, value] of Object.entries(tree)) {
-    object[key] = require(`../../../../${path}/${key}`);
-    if (!!value.child) {
-      readTreeClassification(object, value.child, path);
-    }
+  // for (let [key, value] of Object.entries(tree)) {
+    // object[key] = require(`../../../../${path}/${key}`);
+    // if (!!value.child) {
+      // readTreeClassification(object, value.child, path);
+    // }
+  // }
+}
+
+const bodyParse = function (req) {
+  const res = {};
+  let chips = [];
+  chips = req.split('?');
+  res.url = chips[0];
+  res.params = chips[1] && chips[1].split('&');
+  chips = (Php.trim(res.url, '/')).split('/');
+  res.controller = chips[0];
+  res.action = chips[1];
+  return res;
+}
+
+const bodyPack = function (data) {
+  const req = {};
+  let body = [];
+  for (let [key, value] of Object.entries(data.params)) {
+    body.push(key + '=' + value);
   }
+  req.body = body.join('&');
+  switch (data.type) {
+    default:
+      req.query = `${data.url}?${req.body}`;
+      break;
+  }
+  return req;
 }
 
 export default {
   storeClassification,
   readClassification,
-  readTreeClassification
+  readTreeClassification,
+  bodyParse,
+  bodyPack
 }
