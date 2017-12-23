@@ -1,6 +1,6 @@
 export default {
   routes: {
     '/': require('../views/wiki'),
-    // 'quickStart': 'quickStart',
+    '/quickStart': require('../views/quickStart'),
   }
 }
