@@ -55,11 +55,26 @@
                   child: null,
                   name: '模板语法',
                 },
+                templatebindsum: {
+                  parent: 'mvvm',
+                  child: null,
+                  name: '模板语法小结',
+                },
+                dependence: {
+                  parent: 'mvvm',
+                  child: null,
+                  name: '依赖收集',
+                },
+                dependencesum: {
+                  parent: 'mvvm',
+                  child: null,
+                  name: '依赖收集小结',
+                },
               },
               name: 'mvvm',
             }
           },
-          index: 'templatebind',
+          index: 'dependencesum',
         },
       }
     },
